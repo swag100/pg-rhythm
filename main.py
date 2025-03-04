@@ -72,4 +72,4 @@ class Game:
             )
             pygame.display.flip()
 
-Game()
+Game()   

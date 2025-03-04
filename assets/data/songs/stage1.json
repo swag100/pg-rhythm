@@ -1,0 +1,21 @@
+{
+    "songName": "Chop Chop Master Onion's RAP",
+    "bpm": 110,
+
+    "turns": [
+        {
+            "playable": false,
+            "startingBeat": 4,
+            "pattern": [
+                {"symbol": 0, "time": 0, "phrase": null}
+            ]
+        },
+        {
+            "playable": true,
+            "startingBeat": 8,
+            "pattern": [
+                {"symbol": 0, "time": 0, "phrase": "kick"}
+            ]
+        }
+    ]
+}
