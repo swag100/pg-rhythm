@@ -7,6 +7,8 @@ class Game:
     def __init__(self):
         pygame.init()
 
+        pygame.mixer.init()
+
         self.done = False
 
         self.window = pygame.display.set_mode(WINDOW_SIZE)

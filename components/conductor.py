@@ -10,6 +10,8 @@ class Conductor:
 
         self.song_position = 0
 
+        self.old_beat = None
+
         self.cur_beat = 0
         self.cur_beat_time = 0
 
