@@ -35,6 +35,8 @@ class PlayState(State):
                 self.song.start('good')
             if event.key == pygame.K_4:
                 self.song.start('cool')
+        if event.type == pygame.USEREVENT:
+            print(event.cur_beat)
 
     def tick(self, dt): 
         self.conductor.tick(dt)

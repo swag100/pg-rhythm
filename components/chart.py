@@ -9,5 +9,9 @@ class Chart:
         file.close()
 
         self.song_title = chart['songName']
+        self.song_bpm = chart['bpm']
+
+        turns = chart['turns']
         
-        print(chart, self.song_title)
+        for a in turns:
+            print(a)

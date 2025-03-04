@@ -14,7 +14,7 @@
             "playable": true,
             "startingBeat": 8,
             "pattern": [
-                {"symbol": 0, "time": 0, "phrase": "kick"}
+                {"symbol": 0, "time": 0, "phrase": "kick1"}
             ]
         }
     ]
