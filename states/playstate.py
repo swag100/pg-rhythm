@@ -4,6 +4,7 @@ from states.state import State
 from components.chart import Chart
 from components.conductor import Conductor
 from components.song import Song
+from components.meter import Meter
 
 class PlayState(State):
     def __init__(self):
@@ -15,12 +16,17 @@ class PlayState(State):
         #Set our persistent data to the data from our old state
         self.persistent_data = persistent_data
 
-        song_name = 'stage1'
+        song_name = 'stage1' #read this from persistent data later.
 
         #Gameplay objects
         self.chart = Chart(song_name)
-        self.conductor = Conductor(110) #read from chart later.
+        self.conductor = Conductor(self.chart.bpm)
         self.song = Song(song_name, self.conductor)
+
+        self.meter = Meter(self, 0, 48, [])
+
+        #Preload all song phrases before starting.
+        self.song.load_phrases()
 
         #PLAY THE SONG!
         self.song.start()
@@ -35,11 +41,23 @@ class PlayState(State):
                 self.song.start('good')
             if event.key == pygame.K_4:
                 self.song.start('cool')
+                
+            if event.key == pygame.K_w:
+                self.song.play_phrase('parappa', 'block')
+            if event.key == pygame.K_s:
+                self.song.play_phrase('parappa', 'kick')
+            if event.key == pygame.K_a:
+                self.song.play_phrase('parappa', 'punch')
+            if event.key == pygame.K_d:
+                self.song.play_phrase('parappa', 'chop')
         if event.type == pygame.USEREVENT:
-            print(event.cur_beat)
+            print(event.cur_beat, self.conductor.song_position)
 
     def tick(self, dt): 
-        self.conductor.tick(dt)
+        if self.song.begun:
+            self.conductor.tick(dt)
 
     def draw(self, screen):
-        screen.fill((0,0,0))
+        screen.fill((128,)*3)
+        
+        self.meter.draw(screen)

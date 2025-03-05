@@ -8,8 +8,8 @@ class Chart:
             chart = json.load(file)
         file.close()
 
-        self.song_title = chart['songName']
-        self.song_bpm = chart['bpm']
+        self.title = chart['songName']
+        self.bpm = chart['bpm']
 
         turns = chart['turns']
         
