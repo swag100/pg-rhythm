@@ -24,7 +24,7 @@ class Song:
 
                 self.phrases[character][phrase] = sound
         
-        print(self.phrases)
+        #print(self.phrases)
     
     def play_phrase(self, character, phrase):
         self.phrases[character][phrase].play()

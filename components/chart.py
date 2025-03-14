@@ -13,5 +13,7 @@ class Chart:
 
         turns = chart['turns']
         
+        """
         for a in turns:
-            print(a)
+            print(a)"
+        """

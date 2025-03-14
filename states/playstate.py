@@ -23,7 +23,7 @@ class PlayState(State):
         self.conductor = Conductor(self.chart.bpm)
         self.song = Song(song_name, self.conductor)
 
-        self.meter = Meter(self, 0, 48, [])
+        self.meter = Meter(self, 0, 32, [])
 
         #Preload all song phrases before starting.
         self.song.load_phrases()
