@@ -18,7 +18,7 @@ class Meter:
 
             self.sprites.append(sprite)
 
-        TIME_NUMERATOR = 4 #How many beats in a measure?
+        TIME_NUMERATOR = 3 #How many beats in a measure?
         TIME_DENOMINATOR = 4 #How many steps in a beat?
 
         line_count = length // (TIME_NUMERATOR * TIME_DENOMINATOR)
@@ -27,16 +27,18 @@ class Meter:
         self.line_images = []
 
         #Create rows
+        index = 0
         for _ in range(line_count):
-
             line_image = pygame.Surface((step_count * 16, 16), pygame.SRCALPHA)
 
             for step_marker in range(step_count):
                 sprite_index = 0
-                if step_marker % TIME_DENOMINATOR == 0: 
+                if index % TIME_DENOMINATOR == 0: 
                     sprite_index += 2
 
                 line_image.blit(self.sprites[sprite_index], (step_marker * 16, 0))
+
+                index += 1
             
             self.line_images.append(line_image)
 
